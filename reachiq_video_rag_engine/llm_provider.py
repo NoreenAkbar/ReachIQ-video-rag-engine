@@ -28,7 +28,16 @@ def _call_fireworks(prompt):
         },
         timeout=60
     )
-    return response.json()["choices"][0]["message"]["content"]
+    data = response.json()
+
+    print("\n========== FIREWORKS RESPONSE ==========")
+    print(data)
+    print("========================================\n")
+
+    if "choices" not in data:
+        raise Exception(f"Fireworks Error: {data}")
+
+    return data["choices"][0]["message"]["content"]
 
 
 def ask_llm(prompt, provider=None):

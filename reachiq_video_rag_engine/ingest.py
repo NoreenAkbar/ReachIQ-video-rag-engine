@@ -3,11 +3,19 @@ import yt_dlp
 import whisper
 from scenedetect import detect, ContentDetector
 import easyocr
-from reachiq_video_rag_engine.storage import insert_video, insert_transcript, insert_chunk, insert_scene, insert_thumbnail_analysis
+from reachiq_video_rag_engine.storage import (
+    insert_video,
+    insert_transcript,
+    insert_chunk,
+    insert_embedding,
+    insert_scene,
+    insert_thumbnail_analysis,
+)
+from sentence_transformers import SentenceTransformer
 
 whisper_model = whisper.load_model("base")
 ocr_reader = easyocr.Reader(['en'])
-
+embedding_model = SentenceTransformer("multi-qa-MiniLM-L6-cos-v1")
 
 def download_video(video_url, output_dir="downloads"):
     os.makedirs(output_dir, exist_ok=True)
@@ -66,13 +74,24 @@ def run_ingest_pipeline(video_url, niche="general"):
     insert_transcript(video_id, full_text)
 
     for seg in segments:
-        insert_chunk(
+        chunk_id = insert_chunk(
             video_id=video_id,
             chunk_text=seg["text"],
             start_time=seg["start"],
             end_time=seg["end"],
             chunk_type="body"
         )
+
+        try:
+            embedding = embedding_model.encode(
+                seg["text"],
+                convert_to_numpy=True
+            ).tolist()
+
+            insert_embedding(chunk_id, embedding)
+
+        except Exception as e:
+            print(f"Embedding failed: {e}")
 
     print("Detecting scenes...")
     scenes = detect_scenes(meta["path"])

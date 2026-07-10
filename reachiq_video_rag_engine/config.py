@@ -11,9 +11,9 @@ SUPABASE_SERVICE_KEY = os.getenv("SUPABASE_SERVICE_KEY")
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 FIREWORKS_API_KEY = os.getenv("FIREWORKS_API_KEY")
 
-LLM_PROVIDER = os.getenv("RAG_LLM_PROVIDER", "fireworks")
+LLM_PROVIDER = os.getenv("RAG_LLM_PROVIDER", "groq")
 
 MODELS = {
     "fireworks": "accounts/fireworks/models/gemma-4-31b-it",
-    "groq": "meta-llama/llama-4-maverick-17b-128e-instruct-fp8"
+    "groq": "openai/gpt-oss-120b"
 }
