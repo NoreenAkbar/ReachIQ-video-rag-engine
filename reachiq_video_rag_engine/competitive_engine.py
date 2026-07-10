@@ -26,6 +26,35 @@ class CompetitiveIntelligenceEngine:
         thumbnail_chunks = retrieve_thumbnail_chunks(niche)
 
         trend_chunks = retrieve_trend_chunks(niche)
+        
+        def format_evidence(chunks):
+            formatted = []
+            for c in chunks:
+                formatted.append(f"""
+====================================
+
+Video Title:
+{c.get("title")}
+
+Channel:
+{c.get("channel_name")}
+
+Views:
+{c.get("views")}
+
+Duration:
+{round(c.get("duration_seconds",0)/60,1)} minutes
+
+Similarity:
+{round(c.get("similarity",0),3)}
+
+Transcript Evidence:
+
+{c.get("chunk_text")}
+
+====================================
+""")
+            return "\n".join(formatted)
 
         prompt = f"""
 You are the world's best YouTube Competitive Intelligence Strategist.
@@ -38,7 +67,46 @@ You are given raw evidence retrieved from semantically similar high-performing c
 
 These are NOT summaries.
 
-These are direct transcript snippets retrieved from a semantic vector database.
+Each evidence block includes:
+
+• Video title
+
+• Channel
+
+• View count
+
+• Video duration
+
+• Semantic similarity
+
+• Transcript evidence
+
+You MUST use ALL metadata.
+
+High-view videos deserve higher analytical weight.
+
+If multiple high-performing videos agree on the same pattern, treat it as a high-confidence market signal.
+
+If only low-view videos show a pattern, mention that confidence is lower.
+
+Always explain WHY a pattern works using psychology, not observation alone.
+Think like McKinsey + YouTube Growth Engineer + Consumer Psychologist.
+
+Never summarize.
+
+Reverse engineer.
+
+Infer.
+
+Generalize.
+
+Find hidden patterns.
+
+Rank evidence by strength.
+
+Ignore weak evidence.
+
+Only use patterns supported by multiple videos unless explicitly stated.
 
 First infer patterns from the evidence.
 
@@ -52,19 +120,19 @@ Think globally across every retrieved chunk.
 
 HOOK EVIDENCE
 
-{hook_chunks}
+{format_evidence(hook_chunks)}
 
 ========================
 
 CTA EVIDENCE
 
-{cta_chunks}
+{format_evidence(cta_chunks)}
 
 ========================
 
 STRUCTURE EVIDENCE
 
-{structure_chunks}
+{format_evidence(structure_chunks)}
 
 ========================
 
