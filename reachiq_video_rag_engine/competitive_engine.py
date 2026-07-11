@@ -7,6 +7,8 @@ from reachiq_video_rag_engine.query import (
 )
 
 from reachiq_video_rag_engine.llm_provider import ask_llm
+from reachiq_video_rag_engine.query import extract_primary_niche
+niche = extract_primary_niche(niche)
 import json
 
 

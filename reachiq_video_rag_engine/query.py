@@ -4,8 +4,13 @@ from reachiq_video_rag_engine.llm_provider import ask_llm
 
 embedding_model = SentenceTransformer("multi-qa-MiniLM-L6-cos-v1")
 
+def extract_primary_niche(niche_input):
+    """Takes first 1-2 significant words as the primary niche for matching."""
+    words = niche_input.strip().split()
+    return " ".join(words[:2]) if len(words) > 1 else words[0]
+
 def get_chunks_for_niche(niche, limit=50):
-    videos = supabase.table("videos").select("id").eq("niche", niche).execute().data
+    videos = supabase.table("videos").select("id").ilike("niche", f"%{niche}%").execute().data
     video_ids = [v["id"] for v in videos]
     if not video_ids:
         return []
@@ -126,7 +131,7 @@ SEGMENTS
 
 
 def retrieve_structure_chunks(niche):
-    videos = supabase.table("videos").select("id").eq("niche", niche).execute().data
+    videos = supabase.table("videos").select("id").ilike("niche", f"%{niche}%").execute().data
     video_ids = [v["id"] for v in videos]
     if not video_ids:
         return None
@@ -170,7 +175,7 @@ SCENE COUNTS
 
 
 def retrieve_thumbnail_chunks(niche):
-    videos = supabase.table("videos").select("id").eq("niche", niche).execute().data
+    videos = supabase.table("videos").select("id").ilike("niche", f"%{niche}%").execute().data
     video_ids = [v["id"] for v in videos]
 
     if not video_ids:
@@ -274,7 +279,7 @@ def get_niche_intelligence(niche):
     Used by Streamlit's final recommendation step.
     Returns None gracefully if no data indexed yet.
     """
-    videos = supabase.table("videos").select("id").eq("niche", niche).execute().data
+    videos = supabase.table("videos").select("id").ilike("niche", f"%{niche}%").execute().data
     if not videos:
         return None
 
