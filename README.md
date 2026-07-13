@@ -56,11 +56,11 @@ Recommended Video Blueprint |
 ### Core Modules
 File	|   Purpose
 ------------------------------------
-ingest.py |	Downloads, transcribes, and indexes videos
-storage.py | 	Stores chunks, embeddings, and metadata
-query.py |	Semantic retrieval and intelligence extraction
-competitive_engine.py |	Generates executive competitive intelligence reports
-llm_provider.py |	AMD Gemma / Groq provider abstraction
+ingest.py |	Downloads, transcribes, and indexes videos | 
+storage.py | 	Stores chunks, embeddings, and metadata | 
+query.py |	Semantic retrieval and intelligence extraction | 
+competitive_engine.py |	Generates executive competitive intelligence reports |
+llm_provider.py |	AMD Gemma / Groq provider abstraction |
 
 ### AMD Deployment
 
