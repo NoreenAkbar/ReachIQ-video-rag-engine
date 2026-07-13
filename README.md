@@ -18,6 +18,22 @@ Competitive Intelligence generation |
 This engine is integrated into the main ReachIQ AI project.
 
 ### Main Project
+## Used By
+
+This repository powers the Competitive Intelligence module inside **ReachIQ AI**.
+
+Main Project:
+https://github.com/NoreenAkbar/ReachIQ-AI
+
+The RAG engine is imported into ReachIQ AI to provide:
+
+- Competitor Video Intelligence
+- Semantic Search
+- Strategic Reasoning
+- Hook Analysis
+- CTA Analysis
+- Thumbnail Intelligence
+- Executive Competitive Reports
 
 https://github.com/NoreenAkbar/ReachIQ-AI
 
