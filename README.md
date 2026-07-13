@@ -1,19 +1,19 @@
 # ReachIQ-video-rag-engine
 Semantic Video Retrieval & Competitive Intelligence Engine powering ReachIQ AI.
 
-Built by ### Noreen Akbar
+Built by Noreen Akbar
 
 ### Purpose
 
 This repository contains the standalone Video RAG engine responsible for:
 
-Video ingestion
-Whisper transcription
-OCR extraction
-Semantic chunking
-Embedding generation
-Vector search
-Competitive Intelligence generation
+Video ingestion |
+Whisper transcription |
+OCR extraction |
+Semantic chunking |
+Embedding generation |
+Vector search |
+Competitive Intelligence generation |
 
 This engine is integrated into the main ReachIQ AI project.
 
@@ -22,52 +22,54 @@ This engine is integrated into the main ReachIQ AI project.
 https://github.com/NoreenAkbar/ReachIQ-AI
 
 ### Architecture
-Competitor Videos
+Competitor Videos |
         ↓
-Whisper + OCR
+Whisper + OCR |
         ↓
-Chunking
+Chunking |
         ↓
-Embedding Generation
+Embedding Generation |
         ↓
-Supabase pgvector
+Supabase pgvector |
         ↓
-Semantic Retrieval (RAG)
+Semantic Retrieval (RAG) |
         ↓
-Gemma 3 4B (AMD ROCm + vLLM)
+Gemma 3 4B (AMD ROCm + vLLM) |
         ↓
-Competitive Intelligence Engine
+Competitive Intelligence Engine |
         ↓
-Executive Intelligence Report
+Executive Intelligence Report|
 
 ### Features
-Semantic Video Search
-Transcript Chunking
-pgvector Retrieval
-Competitive Intelligence
-Hook Analysis
-CTA Analysis
-Thumbnail Intelligence
-Viewer Psychology Analysis
-Strategic Reasoning
-Content Gap Detection
-Recommended Video Blueprint
+Semantic Video Search | 
+Transcript Chunking |
+pgvector Retrieval |
+Competitive Intelligence |
+Hook Analysis |
+CTA Analysis |
+Thumbnail Intelligence |
+Viewer Psychology Analysis |
+Strategic Reasoning |
+Content Gap Detection |
+Recommended Video Blueprint |
 
 ### Core Modules
-File	Purpose
-ingest.py	Downloads, transcribes, and indexes videos
-storage.py	Stores chunks, embeddings, and metadata
-query.py	Semantic retrieval and intelligence extraction
-competitive_engine.py	Generates executive competitive intelligence reports
-llm_provider.py	AMD Gemma / Groq provider abstraction
-AMD Deployment
+File	|   Purpose
+------------------------------------
+ingest.py |	Downloads, transcribes, and indexes videos
+storage.py | 	Stores chunks, embeddings, and metadata
+query.py |	Semantic retrieval and intelligence extraction
+competitive_engine.py |	Generates executive competitive intelligence reports
+llm_provider.py |	AMD Gemma / Groq provider abstraction
 
-### Successfully validated on:
+### AMD Deployment
 
-AMD Developer Cloud
-ROCm 7.2
-vLLM
-Google Gemma 3 4B
+ Successfully validated on:
+
+AMD Developer Cloud |
+ROCm 7.2 |
+vLLM |
+Google Gemma 3 4B |
 
 ### Validation:
 
