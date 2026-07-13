@@ -113,4 +113,78 @@ Status
 
 ✅ AMD Developer Hackathon ACT II
 
+                    ReachIQ Video RAG Engine
+          AI-Powered Competitive Intelligence Pipeline
+
+               ┌────────────────────────────┐
+               │ Competitor YouTube Videos  │
+               └─────────────┬──────────────┘
+                             │
+                             ▼
+               ┌────────────────────────────┐
+               │ Download + Metadata         │
+               │ (yt-dlp)                    │
+               └─────────────┬──────────────┘
+                             │
+                             ▼
+               ┌────────────────────────────┐
+               │ Whisper Transcription       │
+               └─────────────┬──────────────┘
+                             │
+                             ▼
+               ┌────────────────────────────┐
+               │ OCR Extraction             │
+               │ (Slides / Screens)         │
+               └─────────────┬──────────────┘
+                             │
+                             ▼
+               ┌────────────────────────────┐
+               │ Chunking Engine            │
+               └─────────────┬──────────────┘
+                             │
+                             ▼
+               ┌────────────────────────────┐
+               │ SentenceTransformer        │
+               │ all-MiniLM-L6-v2           │
+               └─────────────┬──────────────┘
+                             │
+                             ▼
+               ┌────────────────────────────┐
+               │ Supabase + pgvector        │
+               │ Videos                     │
+               │ Chunks                     │
+               │ Embeddings                 │
+               └─────────────┬──────────────┘
+                             │
+                    Semantic Search
+                             │
+                             ▼
+               ┌────────────────────────────┐
+               │ Retrieval Engine           │
+               │ query.py                   │
+               └─────────────┬──────────────┘
+                             │
+                             ▼
+               ┌────────────────────────────┐
+               │ Competitive Engine         │
+               │ Evidence Aggregation       │
+               └─────────────┬──────────────┘
+                             │
+                             ▼
+               ┌────────────────────────────┐
+               │ LLM Layer                  │
+               │ Gemma (AMD) / Groq         │
+               └─────────────┬──────────────┘
+                             │
+                             ▼
+        ┌───────────────────────────────────────────────┐
+        │ Executive Competitive Intelligence Report     │
+        │ • Hook Intelligence                           │
+        │ • CTA Intelligence                            │
+        │ • Thumbnail Intelligence                      │
+        │ • Viewer Psychology                           │
+        │ • Strategic Reasoning                         │
+        │ • Viral Blueprint                             │
+        └───────────────────────────────────────────────┘
+
 Integrated into ReachIQ AI.
